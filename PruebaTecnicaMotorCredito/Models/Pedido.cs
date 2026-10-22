@@ -13,5 +13,7 @@ public partial class Pedido
 
     public string Estado { get; set; } = null!;
 
+    public string? NombreCliente { get; set; }
+
     public virtual ICollection<PedidoDetalle> PedidoDetalles { get; set; } = new List<PedidoDetalle>();
 }

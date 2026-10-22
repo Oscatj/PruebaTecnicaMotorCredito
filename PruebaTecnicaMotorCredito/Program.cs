@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using PruebaTecnicaMotorCredito.Data;
+using PruebaTecnicaMotorCredito.Services;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<DbContext>(option =>
+builder.Services.AddDbContext<DataContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("sql"));
 });
@@ -19,6 +21,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
+
+builder.Services.AddScoped<IPedidoService, PedidoService>();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 var app = builder.Build();
