@@ -1,0 +1,6 @@
+@PruebaTecnicaMotorCredito_HostAddress = http://localhost:5197
+
+GET {{PruebaTecnicaMotorCredito_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
